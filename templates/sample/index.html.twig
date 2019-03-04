@@ -1,0 +1,150 @@
+
+{% include 'sample/header.html' %}
+
+<body>
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Welcome!</h2>
+
+		<br>
+        Welcome to the application, login or register.
+
+		<h3>Show internal pages:</h3>
+		<p><a href="#register" class="ui-btn ui-shadow ui-corner-all">Register</a></p>
+		<p><a href="#login" class="ui-btn ui-shadow ui-corner-all">Login</a></p>
+
+	</div><!-- /content -->
+	
+	{% include 'sample/footer.html' %}
+
+</div><!-- /page one -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<h1>Two</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Two</h2>
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+
+	<div data-role="header" data-theme="b">
+		<h1>Dialog</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Popup</h2>
+		<p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
+		<p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Back to page "one"</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+
+
+<div data-role="page" id="login" data-theme="a">
+<div data-role="header">
+		<h1>Login page</h1>
+	</div><!-- /header -->
+
+<div role="main" class="ui-content">
+		<h2>Two</h2>
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+	</div><!-- /content -->
+
+
+</div>
+
+<div data-role="page" id="register" data-theme="a">
+
+<div data-role="header">
+		<h1>Register</h1>
+	</div><!-- /header -->
+
+<div role="main" class="ui-content">
+		<h2>Two</h2>
+        
+       Username <input type="text" name="username" id="username" value="">
+       Password <input type="text" name="pass" id="pass" value="">
+<button class="ui-btn">Submit</button>
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+	</div><!-- /content -->
+<div data-role="page" id="order" data-theme="a">
+    <div data-role="header">
+	<h1>Order</h1>
+	</div><!-- /header -->
+     <div role="main" class="ui-content">
+		<h2>Order</h2>
+    
+        address:
+       <input type="text" name="address" id="address
+" value="">
+
+        <button id="placeorder" class="ui-btn">Button</button>
+        
+        
+        <script>
+       // pass the ID of the button we want to add the “click” to.
+        $( "#placeorder" ).click(function() {
+ // When the button is clicked, this block will run. The purpose of this is to select the
+ //“address” text field an grab the value from it. This value is then put into a local variable called //“add”.
+          var add = $("#address").val();
+          
+          alert(add);
+          
+          // This will POST data to the /putInSession page. “address” is the name of the variable we 
+         // are sending and “add” is the variable that contains the value we are sending.
+          $.post( "/putInSession", { address: add })
+              .done(function( data ) {
+               // After the page is called, any content on the page called “putInSession” is grabbed
+                // and brought back to us as a variable called “data”
+                alert( "Data Loaded: " + data );
+              });
+        });
+        </script>
+            
+     </div><!-- /content -->
+</div>
+
+<div data-role="page" id="otherpage" data-theme="a">
+    <div data-role="header">
+	<h1>Order</h1>
+	</div><!-- /header -->
+     <div role="main" class="ui-content">
+		<h2>This is the other page</h2>
+                
+     </div><!-- /content -->
+</div>
+	
+</div>
+</body>
+</html>

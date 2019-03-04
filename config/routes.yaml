@@ -1,0 +1,20 @@
+#config/routes.yaml
+#the "app_lucky_number" route name is not important ye
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+    
+app_lucky_number2:
+    path: /hmm/other
+    controller: App\Controller\SecondController::number
+    
+app_lucky_number3:
+    path: /simple/session
+    controller: App\Controller\SimpleSession::hello
+    
+app_register:
+    path: /register
+    controller: App\Controller\RegisterController::registerController
+    
+    
